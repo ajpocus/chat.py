@@ -85,7 +85,7 @@ class Frame:
                     function sendMsg() {
                         var text = $('#text');
                         var msg = text.val();
-                        $.post('/send', {'l': msg});
+                        $.post('/say', {'l': msg});
                         text.val('');
                     }
 
