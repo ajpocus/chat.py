@@ -5,6 +5,7 @@ import threading
 import time
 import datetime
 import random
+import sys
 
 # messages is the list of message lines. thread_lock is a dict that
 # assigns locks to waiting threads. session_pos is a dict that assigns
@@ -108,5 +109,9 @@ class Frame:
         return page % randnum
 
 if __name__ == '__main__':
-    webapp = webpy.application(urls, globals())
-    webapp.run()
+    try:
+	webapp = webpy.application(urls, globals())
+	webapp.run()
+    except KeyboardInterrupt:
+	print "Received keyboard interrupt."
+	sys.exit()	
